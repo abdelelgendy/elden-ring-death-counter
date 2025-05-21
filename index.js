@@ -1,21 +1,18 @@
-const bgMusic = document.getElementById("bg-music");
-const deathSound = new Audio("audio/death.mp3");
+const bgMusic = new Audio("audio/bg-music.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.2;
 
-bgMusic.volume = 0.2;      // softer background music
-deathSound.volume = 0.5;   // slightly louder death sound
-deathSound.preload = "auto"; // preloads the sound
+const deathSound = new Audio("audio/death.mp3");
+deathSound.volume = 0.5;
 
 let count = 0;
 const countEl = document.getElementById("count-el");
 const saveEl = document.getElementById("save-el");
 
 function increment() {
-   bgMusic.load(); // ensure the audio is initialized
-  // Start music only after user interaction
+  // Start background music on first user interaction
   if (bgMusic.paused) {
-    bgMusic.play().catch(err => {
-      console.warn("Autoplay blocked:", err);
-    });
+    bgMusic.play().catch(err => console.warn("Autoplay blocked:", err));
   }
 
   deathSound.currentTime = 0;
