@@ -6,13 +6,17 @@ deathSound.volume  = 0.4;
 deathSound.preload = 'auto';
 deathSound.load();
 
-let count = 0;
+
 const countEl = document.getElementById("count-el");
 const saveEl = document.getElementById("save-el");
 
+// pull the last count from localStorage (or 0 if nothing’s there)
+let count = parseInt(localStorage.getItem('deathCount') || '0', 10);
+countEl.textContent = count;      // update the on‑screen number
+
+
+
 function increment() {
-   bgMusic.load(); // ensure the audio is initialized
-  // Start music only after user interaction
   if (bgMusic.paused) {
     bgMusic.play().catch(err => {
       console.warn("Autoplay blocked:", err);
@@ -24,6 +28,8 @@ function increment() {
 
   count += 1;
   countEl.textContent = count;
+  localStorage.setItem('deathCount', count);
+
 }
 
 function save() {
