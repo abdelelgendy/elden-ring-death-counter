@@ -8,6 +8,7 @@ let countEl = document.getElementById("count-el");
 let count = 0;
 
 function increment() {
+  bgMusic.play();
   deathSound.currentTime = 0; // restart if it's mid-play
   deathSound.play();
   count += 1;
