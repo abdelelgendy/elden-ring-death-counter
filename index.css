@@ -9,7 +9,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background-image: url('/images/vare.jpg'); 
+  background-image: url('images/vare.jpg'); 
   background-size: cover;
   background-position: center;
   opacity: 0.3;
