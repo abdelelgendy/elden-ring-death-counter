@@ -2,7 +2,7 @@ const bgMusic = document.getElementById("bg-music");
 const deathSound = new Audio("audio/death.mp3");
 
 bgMusic.volume = 0.2;      // softer background music
-deathSound.volume = 0.5;   // slightly louder death sound
+deathSound.volume = 0.4;   // slightly louder death sound
 deathSound.preload = "auto"; // preloads the sound
 
 let count = 0;
