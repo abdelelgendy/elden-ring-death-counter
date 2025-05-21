@@ -24,11 +24,6 @@ function save() {
 
 function toggleMute() {
   bgMusic.muted = !bgMusic.muted;
-}
-
-
-function toggleMute() {
-  bgMusic.muted = !bgMusic.muted;
   const icon = document.getElementById("mute-icon");
-  icon.src = bgMusic.muted ? "/images/rune2.png" : "/images/rune1.png"; // Swap icons
+  icon.src = bgMusic.muted ? "images/rune2.png" : "images/rune1.png";
 }
