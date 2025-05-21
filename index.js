@@ -1,5 +1,5 @@
 const deathSound = new Audio('audio/death.mp3');
-const bgMusic = document.getElementById("audio/bg-music");
+const bgMusic = document.getElementById("bg-music");
 bgMusic.volume = 0.2;      // Background music 
 deathSound.volume = 0.5;   
 
