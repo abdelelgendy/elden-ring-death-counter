@@ -1,4 +1,4 @@
-const bgMusic = document.getElementById("/audio/bg-music.mp3");
+const bgMusic = document.getElementById("bg-music.mp3");
 const deathSound = new Audio("audio/death.mp3");
 
 bgMusic.volume     = 0.2;
