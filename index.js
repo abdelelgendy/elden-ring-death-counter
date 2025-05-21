@@ -9,8 +9,10 @@ let countEl = document.getElementById("count-el");
 let count = 0;
 
 function increment() {
-  bgMusic.play();
-  deathSound.currentTime = 0; // restart if it's mid-play
+  if (bgMusic.paused) {
+    bgMusic.play();
+  }
+  deathSound.currentTime = 0;
   deathSound.play();
   count += 1;
   countEl.textContent = count;
