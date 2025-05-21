@@ -10,6 +10,7 @@ const countEl = document.getElementById("count-el");
 const saveEl = document.getElementById("save-el");
 
 function increment() {
+   bgMusic.load(); // ensure the audio is initialized
   // Start music only after user interaction
   if (bgMusic.paused) {
     bgMusic.play().catch(err => {
