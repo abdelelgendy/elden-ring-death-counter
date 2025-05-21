@@ -2,7 +2,7 @@ const bgMusic = document.getElementById("bg-music");
 const deathSound = new Audio("/audio/death.mp3");
 
 bgMusic.volume     = 0.2;
-deathSound.volume  = 0.5;
+deathSound.volume  = 0.4;
 deathSound.preload = 'auto';
 deathSound.load();
 
