@@ -9,11 +9,18 @@ deathSound.load();
 
 const countEl = document.getElementById("count-el");
 const saveEl = document.getElementById("save-el");
+const saveBtn = document.getElementById("save-btn");
+const dieBtn  = document.getElementById("die-btn");
 
 // pull the last count from localStorage (or 0 if nothing’s there)
 let count = parseInt(localStorage.getItem('deathCount') || '0', 10);
 countEl.textContent = count;      // update the on‑screen number
 
+let savedRuns = JSON.parse(localStorage.getItem("savedRuns") || "[]");
+saveEl.textContent = savedRuns.map(c => c + " - ").join("");
+
+dieBtn.addEventListener('click', increment);
+saveBtn.addEventListener('click', save);
 
 
 function increment() {
@@ -33,10 +40,17 @@ function increment() {
 }
 
 function save() {
-  const countStr = count + " - ";
-  saveEl.textContent += countStr;
+ // 1) record this run
+  savedRuns.push(count);
+  localStorage.setItem("savedRuns", JSON.stringify(savedRuns));
+
+  // 2) update the UI
+  saveEl.textContent += `${count} - `;
+
+  // 3) reset counter on‑screen and in storage
   count = 0;
-  countEl.textContent = count;
+  countEl.textContent = "0";
+  localStorage.setItem("deathCount", 0);
 }
 
 function toggleMute() {
